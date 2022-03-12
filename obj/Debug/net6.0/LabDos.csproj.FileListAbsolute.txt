@@ -1,0 +1,15 @@
+D:\Kinal\net\backend\prod\LabDos\bin\Debug\net6.0\LabDos.exe
+D:\Kinal\net\backend\prod\LabDos\bin\Debug\net6.0\LabDos.deps.json
+D:\Kinal\net\backend\prod\LabDos\bin\Debug\net6.0\LabDos.runtimeconfig.json
+D:\Kinal\net\backend\prod\LabDos\bin\Debug\net6.0\LabDos.dll
+D:\Kinal\net\backend\prod\LabDos\bin\Debug\net6.0\ref\LabDos.dll
+D:\Kinal\net\backend\prod\LabDos\bin\Debug\net6.0\LabDos.pdb
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.csproj.AssemblyReference.cache
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.AssemblyInfoInputs.cache
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.AssemblyInfo.cs
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.csproj.CoreCompileInputs.cache
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.dll
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\ref\LabDos.dll
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.pdb
+D:\Kinal\net\backend\prod\LabDos\obj\Debug\net6.0\LabDos.genruntimeconfig.cache
