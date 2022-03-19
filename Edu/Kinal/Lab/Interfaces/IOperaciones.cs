@@ -1,6 +1,8 @@
-namespace LabDos.Edu.Kinal.Lab.Interfaces{
-    public interface IOperaciones{
-        public void listarMisDatos(string identificador);
-        public bool eliminarAsignatura(string asignatura);
+namespace LabDos.Edu.Kinal.Lab.Interfaces
+{
+    public interface IOperaciones
+    {
+        public void ListarMisDatos(string identificador);
+        public bool EliminarAsignatura(string asignatura);
     }
 }

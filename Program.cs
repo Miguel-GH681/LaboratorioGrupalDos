@@ -1,70 +1,64 @@
 ﻿using LabDos.Edu.Kinal.Lab.Entities;
+using LabDos.Edu.Kinal.Lab.Interfaces;
 
 public class Program{
 
-    private static List<Persona> listaGeneral = new List<Persona>();
-    private static List<Persona> registros = new List<Persona>();
+    private static List<Persona> ListaGeneral = new List<Persona>();
 
     public static void Main(string[] args){
 
-        Guid MyUUID = Guid.NewGuid();
+        Alumno alumnoUno = new Alumno("2022001", "Gonzalez Hic", "Alvaro Miguel", "miguelgh681@gmail.com", "20180036", 51);
+        Alumno alumnoDos = new Alumno("2022002", "Carvajal Vargas", "Adriana Carolina", "carvajala@gmail.com", "20180017", 15);
+        Alumno alumnoTres = new Alumno("2022003", "Ospina Pinzón", "Camilo Alberto", "camiloa@gmail.com", "20180115", 87);
 
-        Persona test = new Alumno();
+        Profesor profesorUno = new Profesor("2022011", "Ramírez", "Ernesto", "ernesto@kalum.edu", "1254454714444", "Profesor");
+        Profesor profesorDos = new Profesor("2022022", "González", "Fátima", "fatima@kalum.edu", "4785201414541", "Auxiliar");
+        Profesor profesorTres = new Profesor("2022033", "Gómez", "Gabriela", "gabriela@kalum.edu", "7894441101021", "Profesor");
 
-        Persona alumnoUno = new Alumno(Guid.NewGuid().ToString(), "Gonzalez Hic", "Alvaro Miguel", "miguelgh681@gmail.com", "20180036", 51);
-        Persona alumnoDos = new Alumno(Guid.NewGuid().ToString(), "Carvajal Vargas", "Adriana Carolina", "carvajala@gmail.com", "20180017", 15);
-        Persona alumnoTres = new Alumno(Guid.NewGuid().ToString(), "Ospina Pinzón", "Camilo Alberto", "camiloa@gmail.com", "20180115", 87);
-        Persona alumnoCuatro = new Alumno(Guid.NewGuid().ToString(), "Torres Delgado", "Angelica María", "angelicat@gmail.com", "20180602", 12);
-        Persona alumnoCinco = new Alumno(Guid.NewGuid().ToString(), "Santos Muñoz", "Natalia Meli", "santosn@gmail.com", "20180055", 45);
 
-        Persona profesorUno = new Profesor(Guid.NewGuid().ToString(), "Ramírez", "Ernesto", "ernesto@kalum.edu", "1254454714444", "profesor");
-        Persona profesorDos = new Profesor(Guid.NewGuid().ToString(), "González", "Fátima", "fatima@kalum.edu", "4785201414541", "auxiliar");
-        Persona profesorTres = new Profesor(Guid.NewGuid().ToString(), "Gómez", "Gabriela", "gabriela@kalum.edu", "7894441101021", "profesor");
-        Persona profesorCuatro = new Profesor(Guid.NewGuid().ToString(), "López", "David", "david@kalum.edu", "1245789865321", "auxiliar");
-        Persona profesorCinco = new Profesor(Guid.NewGuid().ToString(), "Hic", "Alvaro", "alvaro@kalum.edu", "1478523698745", "director");
+        OperarRegistro(alumnoUno);
+        OperarRegistro(alumnoDos);   
+        OperarRegistro(alumnoTres);  
+        OperarRegistro(profesorUno);
+        OperarRegistro(profesorDos);
+        OperarRegistro(profesorTres);
 
-        operarRegistro(alumnoUno);
-        operarRegistro(alumnoDos);   
-        operarRegistro(alumnoTres);   
-        operarRegistro(alumnoCuatro);   
-        operarRegistro(alumnoCinco);   
-        operarRegistro(profesorUno);
-        operarRegistro(profesorDos);
-        operarRegistro(profesorTres);
-        operarRegistro(profesorCuatro);
-        operarRegistro(profesorCinco);
+        RegistrarAsistencia(alumnoUno);
+        RegistrarAsistencia(alumnoDos);
+        RegistrarAsistencia(alumnoTres);
+        RegistrarAsistencia(profesorDos);
 
-        registrarAsistencia(alumnoUno);
-        registrarAsistencia(alumnoDos);
-        registrarAsistencia(alumnoTres);
-        registrarAsistencia(alumnoCuatro);
-        registrarAsistencia(profesorDos);
-        registrarAsistencia(profesorCuatro);
-        registrarAsistencia(profesorCinco);
+        VerMisDatos(alumnoDos);
+        VerMisDatos(profesorTres);
 
-        ((Alumno)alumnoCuatro).eliminarAsignatura("matemática");
-        verMisDatos(profesorDos);
-        verMisDatos(alumnoCuatro);
+        QuitarAsignatura(alumnoTres, "Ciencias Naturales");
+        QuitarAsignatura(alumnoDos, "Matemática");
+        QuitarAsignatura(profesorUno, "Contabilidad");
     }
 
-    static void operarRegistro(Persona elemento){
-        registros.Add(elemento);
+    static void OperarRegistro(Persona elemento){
+        ListaGeneral.Add(elemento);
     }
 
-    static void registrarAsistencia(Persona elemento){
-        listaGeneral.Add(elemento);
-        if(elemento is Alumno){
-            ((Alumno)elemento).tomarAsistencia();
-        } else{
-            ((Profesor)elemento).tomarAsistencia();
+    static void RegistrarAsistencia(Persona elemento){
+        foreach(Persona registro in ListaGeneral){
+            if(registro.UUID == elemento.UUID){
+                elemento.TomarAsistencia();
+            }
         }
     }
 
-    static void verMisDatos(Persona elemento){
+    static void VerMisDatos(Persona elemento){
         if(elemento is Alumno){
-            ((Alumno)elemento).listarMisDatos(((Alumno)elemento).Carne);
+            Alumno auxiliar = (Alumno)elemento;
+            auxiliar.ListarMisDatos(auxiliar.Carne);
         } else if(elemento is Profesor){
-            ((Profesor)elemento).listarMisDatos(((Profesor)elemento).CUI);
+            Profesor auxiliar = (Profesor)elemento;
+            auxiliar.ListarMisDatos(auxiliar.CUI);
         }
+    }
+
+    static void QuitarAsignatura(Persona elemento, string asignatura){
+        ((IOperaciones)elemento).EliminarAsignatura(asignatura);
     }
 }

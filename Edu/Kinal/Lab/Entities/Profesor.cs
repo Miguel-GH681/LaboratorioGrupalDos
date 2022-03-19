@@ -16,28 +16,20 @@ namespace LabDos.Edu.Kinal.Lab.Entities{
         public string CUI {get; set; }
         public string Cargo {get; set; }
 
-        public bool eliminarAsignatura(string asignatura)
+        public bool EliminarAsignatura(string asignatura)
         {
-            if(this.Asignaturas.Contains(asignatura)){
-                this.Asignaturas.Remove(asignatura);
-                Console.WriteLine($"Se ha eliminado la asignatura de {this.Nombres} {this.Apellidos}");
-                return true;
-            } else{
-                Console.WriteLine("No existe la asignatura que deseas eliminar");
-                return false;
-            }
+            Console.WriteLine($"Se ha eliminado la asignatura {this.Nombres} {this.Apellidos}");
+            return true;
         }
 
-        public void listarMisDatos(string identificador)
+        public void ListarMisDatos(string identificador)
         {
-            if(identificador == this.CUI){
-                Console.WriteLine($"UUID: {this.UUID} - Apellidos: {this.Apellidos} - Nombres: {this.Nombres} - Cargo: {this.Cargo}");
-            }
+            Console.WriteLine($"{this.UUID} {this.Apellidos} {this.Nombres} {this.Cargo}");
         }
 
-        public override void tomarAsistencia()
+        public override void TomarAsistencia()
         {
-            Console.WriteLine($"Asistencia con CUI {this.CUI}");
+            Console.WriteLine($"Tomando Asistencia de {this.Apellidos} {this.Nombres}");
         }
     }
 }

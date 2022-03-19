@@ -1,13 +1,16 @@
 namespace LabDos.Edu.Kinal.Lab.Entities
 {
-    public abstract class Persona{
-        public Persona(){
+    public abstract class Persona
+    {
+        public Persona()
+        {
         }
 
-        public Persona(string uuid, string apellidos, string nombre, string email){
+        public Persona(string uuid, string apellidos, string nombres, string email)
+        {
             this.UUID = uuid;
             this.Apellidos = apellidos;
-            this.Nombres = nombre;
+            this.Nombres = nombres;
             this.Email = email;
         }
 
@@ -15,7 +18,6 @@ namespace LabDos.Edu.Kinal.Lab.Entities
         public string Apellidos { get; set; }
         public string Nombres { get; set; }
         public string Email { get; set; }
-        public List<string> Asignaturas = new List<string>() {"matemática", "idiomas", "contabilidad", "sociología"};
-        public abstract void tomarAsistencia();
+        public abstract void TomarAsistencia();
     }
 }
